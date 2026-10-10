@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Experience & Wellbeing Newsletter | Turtle Bay International School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-navy">
+  <!-- Top Control Bar (Screen Only) -->
+  <header class="app-header no-print">
+    <div class="header-brand">
+      <i class="fa-solid fa-graduation-cap brand-icon"></i>
+      <div class="brand-text">
+        <span class="app-title">Turtle Bay Newsletter Studio</span>
+        <span class="app-subtitle">Student Experience & Wellbeing • First 7 Weeks</span>
+      </div>
+    </div>
+
+    <div class="header-toolbar">
+      <div class="toolbar-group">
+        <label for="theme-select"><i class="fa-solid fa-palette"></i> Theme:</label>
+        <select id="theme-select" class="form-select">
+          <option value="theme-navy">Navy Academic (Default)</option>
+          <option value="theme-teal">Ocean Teal & Emerald</option>
+          <option value="theme-amber">Warm Amber & Sand</option>
+          <option value="theme-coral">Tropical Coral & Gold</option>
+          <option value="theme-print">Classic B&W Print</option>
+        </select>
+      </div>
+
+      <div class="toolbar-actions">
+        <button id="btn-print" class="btn btn-primary" title="Export to Perfect A4 PDF"><i class="fa-solid fa-file-pdf"></i> Export A4 PDF</button>
+        <a href="parent_view.html" target="_blank" class="btn btn-success" style="text-decoration: none; background: #059669; color: #ffffff;" title="Open Clean Public Parent Version"><i class="fa-solid fa-share-nodes"></i> Parent View</a>
+        <button id="btn-toggle-edit" class="btn btn-secondary" title="Toggle Preview / Edit Mode"><i class="fa-solid fa-eye"></i> Preview Mode</button>
+        <button id="btn-save" class="btn btn-outline" title="Save configuration as JSON"><i class="fa-solid fa-download"></i> Save Data</button>
+        <button id="btn-load-trigger" class="btn btn-outline" title="Load JSON configuration"><i class="fa-solid fa-upload"></i> Load Data</button>
+        <input type="file" id="file-input" accept=".json" style="display: none;">
+        <button id="btn-reset" class="btn btn-danger-outline" title="Reset text to default template"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Formatting Quick Toolbar (Screen Only) -->
+  <div class="format-bar no-print" id="format-bar">
+    <span class="format-label">Formatting:</span>
+    <button class="fmt-btn" data-cmd="bold" title="Bold"><i class="fa-solid fa-bold"></i></button>
+    <button class="fmt-btn" data-cmd="italic" title="Italic"><i class="fa-solid fa-italic"></i></button>
+    <button class="fmt-btn" data-cmd="underline" title="Underline"><i class="fa-solid fa-underline"></i></button>
+    <div class="fmt-divider"></div>
+    <button class="fmt-btn" data-cmd="insertUnorderedList" title="Bullet List"><i class="fa-solid fa-list-ul"></i></button>
+    <button class="fmt-btn" data-cmd="removeFormat" title="Clear Formatting"><i class="fa-solid fa-eraser"></i></button>
+    <div class="fmt-divider"></div>
+    <button class="btn btn-xs btn-outline" id="btn-add-week" style="font-size:0.75rem;"><i class="fa-solid fa-plus"></i> Add Week Theme</button>
+    <button class="btn btn-xs btn-outline" id="btn-add-leader" style="font-size:0.75rem;"><i class="fa-solid fa-user-plus"></i> Add Council Leader</button>
+    <div class="fmt-hint"><i class="fa-solid fa-circle-check"></i> Click any text to edit • Double-click any image to change picture</div>
+  </div>
+
+  <!-- Main Workspace / Newsletter Paper Document -->
+  <main class="workspace-container">
+    <article class="newsletter-paper" id="newsletter-paper">
+      
+      <!-- ================= PAGE 1 CONTENT ================= -->
+      <div class="nl-page-block nl-page-1">
+        <!-- Newsletter Header -->
+        <header class="nl-header">
+          <div class="nl-logo-banner-wrapper">
+            <div class="photo-wrapper logo-photo-wrapper">
+              <img src="assets/logo.png" alt="Turtle Bay International School SEK Logo" class="nl-header-logo-img" id="school-logo">
+              <div class="photo-overlay no-print">
+                <button class="btn btn-sm btn-light" id="btn-change-logo"><i class="fa-solid fa-camera"></i> Change School Logo</button>
+                <input type="file" id="logo-upload-input" accept="image/*" style="display: none;">
+              </div>
+            </div>
+          </div>
+
+          <div class="nl-header-titles-row">
+            <div class="nl-pub-title-group">
+              <h1 class="nl-pub-title" contenteditable="true">Student Experience and Wellbeing</h1>
+              <div class="nl-pub-subtitle" contenteditable="true">Turtle Bay International School • Family Newsletter</div>
+            </div>
+          </div>
+
+          <div class="nl-meta-bar">
+            <div class="nl-meta-item">
+              <span class="meta-label">Issue</span>
+              <span class="meta-value" contenteditable="true" id="meta-issue">Issue No. 02</span>
+            </div>
+            <div class="meta-dot">•</div>
+            <div class="nl-meta-item">
+              <span class="meta-label">Date:</span>
+              <span class="meta-value" contenteditable="true" id="meta-date">October 2026</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Welcome Section: Our First Seven Weeks -->
+        <section class="nl-section nl-welcome-section">
+          <div class="nl-section-header">
+            <span class="pillar-badge">First 7 Weeks Special</span>
+            <h2 class="nl-section-title" contenteditable="true"><i class="fa-solid fa-heart-pulse title-icon"></i> Our First Seven Weeks</h2>
+          </div>
+
+          <div class="nl-salutation" contenteditable="true" style="font-family: var(--font-serif); font-weight: 700; font-size: 1.1rem; color: var(--color-primary); margin-bottom: 8px;">
+            Dear Turtle Bay Families,
+          </div>
+
+          <div class="nl-content-block" contenteditable="true" id="welcome-text">
+            <p>Seven weeks into the school year, our students have settled into their routines with curiosity, kindness, and growing confidence. This issue shares what the Student Experience Department has been working on, and what your children have been part of, since the very first day.</p>
+          </div>
+        </section>
+
+        <!-- The Community Program Section -->
+        <section class="nl-section nl-community-section">
+          <div class="nl-section-header">
+            <span class="pillar-badge badge-amber">Whole-School Belonging</span>
+            <h2 class="nl-section-title" contenteditable="true"><i class="fa-solid fa-users title-icon"></i> The Community Program: Celebrating Our Values</h2>
+          </div>
+          
+          <div class="nl-content-block" contenteditable="true" id="community-intro">
+            <p>This year we launched our Community Program, a new initiative to reinforce positive behavior and school values across the whole school. All students and staff have been distributed into four Communities (Stars, Dunes, Pearls, and Corals), so that children from different grades and classes belong to a shared team alongside teachers and staff members.</p>
+            <p>The Communities come together regularly to celebrate students who model our values in action. The program builds belonging, teamwork, and pride, and it recognizes the everyday choices that make Turtle Bay a caring and respectful place to learn.</p>
+          </div>
+
+          <!-- Interactive 4 Communities Badges Showcase -->
+          <div class="communities-showcase-grid">
+            <div class="community-badge-card community-stars">
+              <div class="comm-icon">⭐</div>
+              <div class="comm-details">
+                <h4 contenteditable="true">Stars</h4>
+                <p contenteditable="true">Brilliance &amp; Excellence</p>
+              </div>
+            </div>
+
+            <div class="community-badge-card community-dunes">
+              <div class="comm-icon">🏜️</div>
+              <div class="comm-details">
+                <h4 contenteditable="true">Dunes</h4>
+                <p contenteditable="true">Resilience &amp; Strength</p>
+              </div>
+            </div>
+
+            <div class="community-badge-card community-pearls">
+              <div class="comm-icon">🦪</div>
+              <div class="comm-details">
+                <h4 contenteditable="true">Pearls</h4>
+                <p contenteditable="true">Wisdom &amp; Integrity</p>
+              </div>
+            </div>
+
+            <div class="community-badge-card community-corals">
+              <div class="comm-icon">🪸</div>
+              <div class="comm-details">
+                <h4 contenteditable="true">Corals</h4>
+                <p contenteditable="true">Community &amp; Unity</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community 4-Photo Gallery Grid -->
+          <div class="community-gallery-grid">
+            <div class="photo-card">
+              <div class="photo-wrapper">
+                <img src="assets/community_1.jpg" style="--focus: 50% 50%" alt="Interactive 4 Communities Display" id="community-photo-1" class="photo-img">
+                <div class="photo-overlay no-print">
+                  <button class="btn btn-xs btn-light" id="btn-change-community-1" type="button"><i class="fa-solid fa-camera"></i> Change</button>
+                  <input type="file" id="community-upload-1" accept="image/*" style="display: none;">
+                </div>
+              </div>
+              <div class="photo-caption" contenteditable="true" id="community-caption-1">
+                <i class="fa-solid fa-sparkles"></i> Interactive display revealing the 4 Communities.
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="photo-wrapper">
+                <img src="assets/community_2.jpg" style="--focus: 50% 50%" alt="Stars Community Presentation" id="community-photo-2" class="photo-img">
+                <div class="photo-overlay no-print">
+                  <button class="btn btn-xs btn-light" id="btn-change-community-2" type="button"><i class="fa-solid fa-camera"></i> Change</button>
+                  <input type="file" id="community-upload-2" accept="image/*" style="display: none;">
+                </div>
+              </div>
+              <div class="photo-caption" contenteditable="true" id="community-caption-2">
+                <i class="fa-solid fa-microphone"></i> Presenting the Stars Community at assembly.
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="photo-wrapper">
+                <img src="assets/community_3.jpg" style="--focus: 50% 50%" alt="Corals Community Reveal" id="community-photo-3" class="photo-img">
+                <div class="photo-overlay no-print">
+                  <button class="btn btn-xs btn-light" id="btn-change-community-3" type="button"><i class="fa-solid fa-camera"></i> Change</button>
+                  <input type="file" id="community-upload-3" accept="image/*" style="display: none;">
+                </div>
+              </div>
+              <div class="photo-caption" contenteditable="true" id="community-caption-3">
+                <i class="fa-solid fa-layer-group"></i> Corals Community reveal stage presentation.
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="photo-wrapper">
+                <img src="assets/community_4.jpg" style="--focus: 50% 50%" alt="Students celebrating Community reveal" id="community-photo-4" class="photo-img">
+                <div class="photo-overlay no-print">
+                  <button class="btn btn-xs btn-light" id="btn-change-community-4" type="button"><i class="fa-solid fa-camera"></i> Change</button>
+                  <input type="file" id="community-upload-4" accept="image/*" style="display: none;">
+                </div>
+              </div>
+              <div class="photo-caption" contenteditable="true" id="community-caption-4">
+                <i class="fa-solid fa-people-group"></i> Celebrating community discovery on stage.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Screen Visual Page Break Boundary (Hidden in Print) -->
+      <div class="page-break-indicator no-print"></div>
+
+      <!-- ================= PAGE 2 CONTENT ================= -->
+      <div class="nl-page-block nl-page-2">
+        <!-- Morning Assemblies: A Weekly Theme Section -->
+        <section class="nl-section nl-assemblies-section">
+          <div class="nl-section-header">
+            <span class="pillar-badge">Weekly Character &amp; IB</span>
+            <h2 class="nl-section-title" contenteditable="true"><i class="fa-solid fa-sun title-icon"></i> Morning Assemblies: A Weekly Theme</h2>
+          </div>
+
+          <div class="nl-content-block" contenteditable="true" id="assemblies-intro">
+            <p>Our morning assemblies are running every week, and each week centers on a theme. The theme is either an attribute of the IB Learner Profile (such as Caring, Principled, or Reflective) or a trait of the Global Competitive Citizen (HCDP). Classrooms carry the theme into discussions, activities, and recognition, helping students live these values day to day.</p>
+          </div>
+
+          <!-- Weekly Themes Tracker / Table -->
+          <div class="weekly-themes-container">
+            <div class="weekly-themes-header">
+              <i class="fa-solid fa-list-check"></i> Themes Covered So Far (First 7 Weeks)
+            </div>
+            <div class="weekly-themes-grid" id="weekly-themes-grid">
+              
+              <div class="week-item">
+                <div class="week-tag">Week 1</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Being Disciplined</strong> <span class="badge-mini">Weekly Focus</span>
+                  <div class="week-sub">Building self-control, focus, and positive habits across every learning space.</div>
+                </div>
+              </div>
+
+              <div class="week-item">
+                <div class="week-tag">Week 2</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Being Responsible</strong> <span class="badge-mini">Weekly Focus</span>
+                  <div class="week-sub">Taking ownership of actions, choices, and shared classroom duties.</div>
+                </div>
+              </div>
+
+              <div class="week-item">
+                <div class="week-tag">Week 3</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Being Communicators</strong> <span class="badge-mini">Weekly Focus</span>
+                  <div class="week-sub">Expressing ideas respectfully, listening actively, and collaborating effectively.</div>
+                </div>
+              </div>
+
+              <div class="week-item">
+                <div class="week-tag">Week 4</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Being Caring</strong> <span class="badge-mini">Weekly Focus</span>
+                  <div class="week-sub">Demonstrating empathy, kindness, and support for peers and staff.</div>
+                </div>
+              </div>
+
+              <div class="week-item">
+                <div class="week-tag">Week 5</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Belonging</strong> <span class="badge-mini badge-hcdp">Community Focus</span>
+                  <div class="week-sub">Ensuring every student feels valued, included, and connected to our school family.</div>
+                </div>
+              </div>
+
+              <div class="week-item">
+                <div class="week-tag">Week 6</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Risk-taking</strong> <span class="badge-mini">Weekly Focus</span>
+                  <div class="week-sub">Embracing new challenges with courage, resilience, and curiosity.</div>
+                </div>
+              </div>
+
+              <div class="week-item">
+                <div class="week-tag">Week 7</div>
+                <div class="week-content" contenteditable="true">
+                  <strong>Proactive learner</strong> <span class="badge-mini">Weekly Focus</span>
+                  <div class="week-sub">Taking initiative, asking meaningful questions, and driving personal growth.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Mental Health Day Section -->
+        <section class="nl-section nl-mh-section">
+          <div class="nl-section-header">
+            <span class="pillar-badge badge-teal">Wellbeing Special</span>
+            <h2 class="nl-section-title" contenteditable="true"><i class="fa-solid fa-comments title-icon"></i> International Mental Health Day: Assembly with Dr. Maram Alsamman</h2>
+          </div>
+
+          <div class="nl-grid-2col">
+            <div class="nl-col-text" contenteditable="true" id="mh-text">
+              <p>To mark International Mental Health Day, we held a school assembly and were honored to host <strong>Dr. Maram Alsamman</strong>, who spoke with our students about mental health and wellbeing.</p>
+              <p>The assembly reinforced a message we share with students all year: <em>it is healthy to talk about how we feel, and support is always available.</em></p>
+              
+              <blockquote class="speaker-quote-box">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="quote-text" contenteditable="true">"It is healthy to talk about how we feel, and support is always available."</div>
+                <div class="quote-author" contenteditable="true">— Dr. Maram Alsamman</div>
+              </blockquote>
+            </div>
+
+            <div class="nl-col-visual">
+              <div class="photo-card">
+                <div class="photo-wrapper" id="mh-photo-wrapper">
+                  <img src="assets/maram_alsamman.jpg" style="--focus: 60% 40%" alt="Assembly with Dr. Maram Alsamman" id="mh-photo" class="photo-img">
+                  <div class="photo-overlay no-print">
+                    <button class="btn btn-sm btn-light" id="btn-change-mh-photo" type="button"><i class="fa-solid fa-camera"></i> Change Picture</button>
+                    <input type="file" id="mh-upload-input" accept="image/*" style="display: none;">
+                  </div>
+                </div>
+                <div class="photo-caption" contenteditable="true" id="mh-caption">
+                  <i class="fa-solid fa-microphone-lines"></i> Dr. Maram Alsamman speaking with students about mental health and wellbeing at the school assembly.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Student Leadership Council Section -->
+        <section class="nl-section nl-slc-section">
+          <div class="nl-section-header">
+            <span class="pillar-badge">Student Agency &amp; Leadership</span>
+            <h2 class="nl-section-title" contenteditable="true"><i class="fa-solid fa-award title-icon"></i> Student Leadership Council: Our Student Voices</h2>
+          </div>
+
+          <div class="nl-content-block" contenteditable="true" id="slc-intro">
+            <p>We have launched our <strong>Student Leadership Council</strong>, giving students a real voice in school life and a chance to practice responsibility and leadership. The Council meets every two weeks to share ideas on behalf of their classmates. Congratulations to our first Council members:</p>
+          </div>
+
+          <div class="slc-container-grid">
+            <div class="slc-roster-column">
+              <ul class="slc-list" id="slc-list">
+                <li contenteditable="true"><span class="slc-badge slc-exec">President</span> <strong>Zara Lawaki</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-exec">Vice President</span> <strong>Methuni Muthambi</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-grade">Grade 6 Leader</span> <strong>Talha Orkaz</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-grade">Grade 5 Leader</span> <strong>Evangelia Tsikna</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-grade">Grade 4 Leader</span> <strong>Andrea Steven</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-grade">Grade 3 Leader</span> <strong>Eliàs Mira</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-grade">Grade 2 Leader</span> <strong>Kieran Dieckmann</strong></li>
+                <li contenteditable="true"><span class="slc-badge slc-grade">Grade 1 Leader</span> <strong>Moaz Ahmed</strong></li>
+              </ul>
+            </div>
+
+            <div class="slc-visual-column">
+              <div class="slc-photos-grid" style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="photo-card">
+                  <div class="photo-wrapper">
+                    <img src="assets/slc_assembly_intro.jpg" style="--focus: 40% 45%" alt="Student Leadership Council Assembly" id="slc-photo-1" class="photo-img">
+                    <div class="photo-overlay no-print">
+                      <button class="btn btn-xs btn-light" id="btn-change-slc-1" type="button"><i class="fa-solid fa-camera"></i> Change</button>
+                      <input type="file" id="slc-upload-1" accept="image/*" style="display: none;">
+                    </div>
+                  </div>
+                  <div class="photo-caption" contenteditable="true" id="slc-caption-1">
+                    <i class="fa-solid fa-check-to-slot"></i> Council members introduced at a whole-school assembly.
+                  </div>
+                </div>
+
+                <div class="photo-card">
+                  <div class="photo-wrapper">
+                    <img src="assets/slc_elections_classroom.jpg" style="--focus: 50% 45%" alt="School Council Elections Classroom" id="slc-photo-2" class="photo-img">
+                    <div class="photo-overlay no-print">
+                      <button class="btn btn-xs btn-light" id="btn-change-slc-2" type="button"><i class="fa-solid fa-camera"></i> Change</button>
+                      <input type="file" id="slc-upload-2" accept="image/*" style="display: none;">
+                    </div>
+                  </div>
+                  <div class="photo-caption" contenteditable="true" id="slc-caption-2">
+                    <i class="fa-solid fa-chalkboard-user"></i> Students learning how school council elections work.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Looking Ahead & Positive Discipline Section -->
+        <section class="nl-section nl-looking-ahead-section">
+          <div class="nl-section-header">
+            <span class="pillar-badge badge-amber">Home &amp; School Partnership</span>
+            <h2 class="nl-section-title" contenteditable="true"><i class="fa-solid fa-handshake-angle title-icon"></i> Looking Ahead</h2>
+          </div>
+
+          <div class="discipline-callout-box">
+            <div class="callout-icon-col">
+              <div class="callout-badge-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+            </div>
+            <div class="callout-content-col">
+              <div contenteditable="true" id="looking-ahead-text">
+                <p>Thank you for your partnership in these first seven weeks. We encourage you to keep using a <strong>Positive Discipline</strong> approach at home, and our Positive Discipline Parenting Hub offers weekly tools for connection and problem-solving with your child.</p>
+              </div>
+
+              <!-- Parenting Hub & Clickable QR Code Container -->
+              <div class="hub-qr-container">
+                <div class="hub-text-info" contenteditable="true">
+                  <p class="callout-footer-note">🏡 <strong>Positive Discipline Parenting Hub:</strong> Access weekly practical tools, strategies, and resources for proactive parenting.</p>
+                  <div class="hub-link-wrapper">
+                    <a href="https://mazenalsaedi.github.io/Positive-Dicipline/" target="_blank" class="hub-clickable-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Positive Discipline Hub</a>
+                  </div>
+                </div>
+
+                <div class="hub-qr-card">
+                  <a href="https://mazenalsaedi.github.io/Positive-Dicipline/" target="_blank" title="Click to open Positive Discipline Hub" class="qr-link-wrapper">
+                    <div class="photo-wrapper qr-photo-wrapper">
+                      <img src="assets/qr_parenting_hub.svg" alt="Positive Discipline Hub QR Code" id="qr-code-img" class="qr-img">
+                      <div class="photo-overlay no-print">
+                        <button class="btn btn-xs btn-light" id="btn-change-qr"><i class="fa-solid fa-camera"></i> Change</button>
+                        <input type="file" id="qr-upload-input" accept="image/*" style="display: none;">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="qr-caption"><i class="fa-solid fa-qrcode"></i> Scan or Click QR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Advice & Reminders Section -->
+        <section class="nl-section nl-reminders-section">
+          <div class="reminders-container">
+            <h3 class="reminders-title" contenteditable="true"><i class="fa-solid fa-bell title-icon"></i> Reminders</h3>
+            
+            <ul class="reminders-list" contenteditable="true" id="reminders-list">
+              <li><i class="fa-solid fa-clock reminder-icon text-amber"></i> <span><strong>Arrival Time:</strong> Arrival is at <strong>7:45 AM</strong>; please be on time.</span></li>
+              <li><i class="fa-solid fa-bullhorn reminder-icon text-navy"></i> <span><strong>Morning Assembly:</strong> Morning Assembly begins promptly at <strong>7:50 AM</strong>.</span></li>
+              <li><i class="fa-solid fa-helmet-safety reminder-icon text-teal"></i> <span><strong>Safety First:</strong> Students who ride a bike or scooter should wear a helmet.</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Newsletter Footer -->
+        <footer class="nl-footer">
+          <div class="nl-footer-content">
+            <div class="nl-footer-brand">
+              <div class="photo-wrapper footer-logo-wrapper">
+                <img src="assets/logo.png" alt="Turtle Bay Emblem" class="footer-logo" id="footer-logo">
+                <div class="photo-overlay no-print">
+                  <button class="btn btn-xs btn-light" id="btn-change-footer-logo"><i class="fa-solid fa-camera"></i> Change</button>
+                  <input type="file" id="footer-logo-upload-input" accept="image/*" style="display: none;">
+                </div>
+              </div>
+              <span class="footer-school-name" contenteditable="true">Turtle Bay International School • Student Experience Department</span>
+            </div>
+            <div class="nl-footer-contact" contenteditable="true">
+              <span><i class="fa-solid fa-envelope"></i> counseling@tbis.edu.sa</span>
+              <span class="footer-sep">•</span>
+              <span><i class="fa-solid fa-globe"></i> www.turtlebay.sek.sa</span>
+              <span class="footer-sep">•</span>
+              <span><i class="fa-brands fa-instagram"></i> @turtlebayinternational.school</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+    </article>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
