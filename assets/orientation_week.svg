@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-orient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2942"/>
+      <stop offset="50%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="card-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <dropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg-orient)"/>
+  
+  <!-- Decorative Circles -->
+  <circle cx="100" cy="80" r="140" fill="#38bdf8" opacity="0.1"/>
+  <circle cx="720" cy="380" r="180" fill="#0d9488" opacity="0.12"/>
+  <circle cx="400" cy="225" r="220" fill="#ffffff" opacity="0.03"/>
+
+  <!-- Content Container Card -->
+  <rect x="50" y="40" width="700" height="370" rx="20" fill="url(#card-glow)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Graphic Elements: Students & Teacher Group Illustration -->
+  <!-- Welcome Banner Ribbon -->
+  <path d="M 220 70 L 580 70 L 560 115 L 240 115 Z" fill="#0284c7" opacity="0.9"/>
+  <text x="400" y="100" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="2">ORIENTATION WEEK 2026</text>
+
+  <!-- Illustration Icons & Floating Badges -->
+  <!-- Handshake & Connection -->
+  <g transform="translate(140, 150)">
+    <rect width="140" height="150" rx="16" fill="#ffffff" opacity="0.95" filter="url(#shadow)"/>
+    <circle cx="70" cy="55" r="30" fill="#e0f2fe"/>
+    <path d="M55 55 Q70 35 85 55 T115 55" stroke="#0284c7" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <text x="70" y="115" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#0f2942" text-anchor="middle">Building</text>
+    <text x="70" y="133" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#0284c7" text-anchor="middle">Friendships</text>
+  </g>
+
+  <!-- Classroom Routines -->
+  <g transform="translate(330, 150)">
+    <rect width="140" height="150" rx="16" fill="#ffffff" opacity="0.95" filter="url(#shadow)"/>
+    <circle cx="70" cy="55" r="30" fill="#fef3c7"/>
+    <path d="M55 60 L70 45 L85 60 M70 45 L70 70" stroke="#d97706" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="70" y="115" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#0f2942" text-anchor="middle">Classroom</text>
+    <text x="70" y="133" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#d97706" text-anchor="middle">Expectations</text>
+  </g>
+
+  <!-- Welcoming Spaces -->
+  <g transform="translate(520, 150)">
+    <rect width="140" height="150" rx="16" fill="#ffffff" opacity="0.95" filter="url(#shadow)"/>
+    <circle cx="70" cy="55" r="30" fill="#ccfbf1"/>
+    <path d="M55 50 H85 V70 H55 Z M70 40 V50" stroke="#0d9488" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <text x="70" y="115" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#0f2942" text-anchor="middle">Exploring</text>
+    <text x="70" y="133" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#0d9488" text-anchor="middle">New Spaces</text>
+  </g>
+
+  <!-- Bottom Caption Badge -->
+  <rect x="200" y="340" width="400" height="42" rx="21" fill="#0f2942" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="400" y="366" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#f8fafc" text-anchor="middle">✨ "Helping Every Student Adapt & Thrive"</text>
+</svg>
